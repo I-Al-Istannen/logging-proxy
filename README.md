@@ -30,7 +30,7 @@ history to students in any way you like.
     <dependency>
       <groupId>com.github.I-Al-Istannen</groupId>
       <artifactId>logging-proxy</artifactId>
-      <version>7206302da6</version>
+      <version>f3cc3ff39bbf43450e1de3f423afc9ea8db37462</version>
     </dependency>
    ```
 3. Configure your maven compiler plugin to use the processor
@@ -43,7 +43,7 @@ history to students in any way you like.
          <dependency>
            <groupId>com.github.I-Al-Istannen</groupId>
            <artifactId>logging-proxy</artifactId>
-           <version>7206302da6</version>
+           <version>f3cc3ff39bbf43450e1de3f423afc9ea8db37462</version>
          </dependency>
        </annotationProcessorPaths>
      </configuration>
@@ -82,8 +82,6 @@ class CalculatorProxy {
         $testLogger$.onMethodReturn("add", result);
         return result;
     }
-
-    public void notLogged() { return; }
 
     public int addStatic(int a, int b) {
         $testLogger$.onMethodCallStart("addTwo", a, b);
