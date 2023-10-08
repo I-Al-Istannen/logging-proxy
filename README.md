@@ -15,6 +15,41 @@ This project automates generating a proxy at compile-time that traces all calls
 made by the testing infrastructure and allows you to present the full call
 history to students in any way you like.
 
+## Use in your project
+1. Add the jitpack repository
+   ```xml
+   <repositories>
+     <repository>
+       <id>jitpack.io</id>
+       <url>https://jitpack.io</url>
+     </repository>
+   </repositories>
+   ```
+2. Add it as a depdendency
+   ```xml
+    <dependency>
+      <groupId>com.github.I-Al-Istannen</groupId>
+      <artifactId>logging-proxy</artifactId>
+      <version>7206302da6</version>
+    </dependency>
+   ```
+3. Configure your maven compiler plugin to use the processor
+   ```xml
+   <plugin>
+     <groupId>org.apache.maven.plugins</groupId>
+     <artifactId>maven-compiler-plugin</artifactId>
+     <configuration>
+       <annotationProcessorPaths>
+         <dependency>
+           <groupId>com.github.I-Al-Istannen</groupId>
+           <artifactId>logging-proxy</artifactId>
+           <version>7206302da6</version>
+         </dependency>
+       </annotationProcessorPaths>
+     </configuration>
+   </plugin>
+   ```
+
 ## Example
 Consider the following simple shim (or real implementation) for a student task.
 ```java
