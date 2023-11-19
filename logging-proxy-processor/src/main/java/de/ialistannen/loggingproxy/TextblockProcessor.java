@@ -16,16 +16,16 @@ public class TextblockProcessor {
 
   private static final String METHOD_TEMPLATE_NON_VOID = """
     public {returnType} {name}({paramDecl}) {
-      $testLogger$.onMethodCallStart("{name}", {paramNames});
-      {returnType} result = {receiver}.{name}({paramNames});
+      $testLogger$.onMethodCallStart("{name}"{paramNamesLog});
+      {returnType} result = {receiver}.{name}({paramNamesForward});
       $testLogger$.onMethodReturn("{name}", result);
       return result;
     }
     """;
   private static final String METHOD_TEMPLATE_VOID = """
     public void {name}({paramDecl}) {
-      $testLogger$.onMethodCallStart("{name}", {paramNames});
-      {receiver}.{name}({paramNames});
+      $testLogger$.onMethodCallStart("{name}"{paramNamesLog});
+      {receiver}.{name}({paramNamesForward});
       $testLogger$.onMethodReturn("{name}", null);
     }
     """;
@@ -105,7 +105,8 @@ public class TextblockProcessor {
       .replace("{returnType}", element.getReturnType().toString())
       .replace("{receiver}", receiver)
       .replace("{paramDecl}", paramDecl)
-      .replace("{paramNames}", paramNames);
+      .replace("{paramNamesForward}", paramNames)
+      .replace("{paramNamesLog}", paramNames.isBlank() ? "" : ", " + paramNames);
 
     return methodTemplate;
   }
