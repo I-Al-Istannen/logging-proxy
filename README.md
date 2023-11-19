@@ -30,7 +30,7 @@ history to students in any way you like.
     <dependency>
       <groupId>com.github.I-Al-Istannen</groupId>
       <artifactId>logging-proxy</artifactId>
-      <version>f3cc3ff39bbf43450e1de3f423afc9ea8db37462</version>
+      <version>6880313241395d6350518d0b2b15d5ee068b20e9</version>
     </dependency>
    ```
 3. Configure your maven compiler plugin to use the processor
@@ -43,7 +43,7 @@ history to students in any way you like.
          <dependency>
            <groupId>com.github.I-Al-Istannen</groupId>
            <artifactId>logging-proxy</artifactId>
-           <version>f3cc3ff39bbf43450e1de3f423afc9ea8db37462</version>
+           <version>6880313241395d6350518d0b2b15d5ee068b20e9</version>
          </dependency>
        </annotationProcessorPaths>
      </configuration>
